@@ -1,14 +1,14 @@
-# odoo-transitions, a lightweight workflow engine for Odoo
+# OdooLightWorkflow, a lightweight workflow engine for Odoo
 # Copyright (C) 2016 Savoir-faire Linux
 
-# This file if part of odoo-transitions.
+# This file if part of OdooLightWorkflow.
 #
-# odoo-transitions free software: you can redistribute it and/or modify it
+# OdooLightWorkflow free software: you can redistribute it and/or modify it
 # under the terms of the GNU Lesser General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# odoo-transitions is distributed in the hope that it will be useful, but
+# OdooLightWorkflow is distributed in the hope that it will be useful, but
 # WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
 # or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public
 # License for more details.
@@ -23,7 +23,7 @@
     'website': 'http://www.savoirfairelinux.com',
     'license': 'LGPL-3',
     'category': 'Others',
-    'summary': 'Demo module for odoo-transitions workflow engine.',
+    'summary': 'Demo module for OdooLightWorkflow workflow engine.',
     'depends': [
         'base',
     ],
