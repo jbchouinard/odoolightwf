@@ -17,16 +17,14 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 {
     'name': 'Superhero Management',
-    'version': '1.0',
+    'version': '1.1',
     'author': 'Savoir-faire Linux',
     'maintainer': 'Savoir-faire Linux',
     'website': 'http://www.savoirfairelinux.com',
     'license': 'LGPL-3',
     'category': 'Others',
-    'summary': 'Demo module for OdooLightWorkflow workflow engine.',
-    'depends': [
-        'base',
-    ],
+    'summary': 'Demo module for OdooLightWorkflow, a lightweight Odoo workflow engine.',
+    'depends': [],
     'external_dependencies': {
         'python': [
             'transitions',
