@@ -38,7 +38,7 @@ class SuperHero(ltwf.WorkflowModel):
     ]
     _transitions = [
         # Transitions can be lists of the form:
-        # [trigger, source, dest, conditions, unless, before, after, prepare]
+        # [<trigger>, <source>, <dest>, <conditions>, <unless>, <before>, <after>, <prepare>]
         # where everything after dest is optional.
         # trigger is the name of the trigger. it has to be a valid Python identifier.
         # source and dest are the names of source and destination states
@@ -51,7 +51,7 @@ class SuperHero(ltwf.WorkflowModel):
         ['certify', 'x', 'a', 'valid_phone', None, None, 'gain_prestige'],
         ['promote', 'source', 'a', 'b', None, None, None, 'gain_prestige'],
         ['promote', 'source', 'b', 'c', None, None, None, 'gain_prestige'],
-        # Any method can be a list of methods instead:
+        # To execute a multiple methods, simply use a list instead:
         ['promote', 'source', 'c', 'd', None, None, None, ['gain_prestige', 'do_nothing']],
         ['promote', 'source', 'd', 'e', None, None, None, 'gain_prestige'],
         # Alternatively, transitions can be defined with dicts.
@@ -60,7 +60,10 @@ class SuperHero(ltwf.WorkflowModel):
         {'trigger': 'demote', 'source': 'd', 'dest': 'c'},
         {'trigger': 'demote', 'source': 'c', 'dest': 'b'},
         {'trigger': 'demote', 'source': 'b', 'dest': 'a'},
-        {'trigger': 'disbar', 'source': '*', 'dest': 'x', 'after': ['shame']},
+        # A transition can have multiple sources, using lists:
+        {'trigger': 'disbar', 'source': ['x', 'a', 'b', 'c', 'd', 'e'], 'dest': 'x', 'after': 'shame'},
+        # Or it can have all states as source:
+        {'trigger': 'disbar', 'source': '*', 'dest': 'x', 'after': 'shame'},
     ]
 
     # The state field is special. It must be a selection field, with the same
