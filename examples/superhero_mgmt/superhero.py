@@ -17,7 +17,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 from openerp import fields
 
-from . import odoolightwf as ltwf
+import odoolightwf as ltwf
 
 
 class SuperHero(ltwf.WorkflowModel):
