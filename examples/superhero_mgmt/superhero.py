@@ -19,6 +19,7 @@ from openerp import fields
 
 import odoolightwf as ltwf
 
+
 # To use a light workflow, all you need is to inherit from WorkflowModel,
 # and to set up a few attributes and a 'state' field, as demonstrated in this class.
 class SuperHero(ltwf.WorkflowModel):
