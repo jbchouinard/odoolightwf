@@ -50,11 +50,11 @@ class SuperHero(ltwf.WorkflowModel):
         # 'after' methods are executed after the state is changed, if conditions are met
         # (methods are always specified by name, not with a function object.)
         ['certify', 'x', 'a', 'valid_phone', None, None, 'gain_prestige'],
-        ['promote', 'source', 'a', 'b', None, None, None, 'gain_prestige'],
-        ['promote', 'source', 'b', 'c', None, None, None, 'gain_prestige'],
+        ['promote', 'a', 'b', None, None, None, 'gain_prestige'],
+        ['promote', 'b', 'c', None, None, None, 'gain_prestige'],
         # To execute a multiple methods, simply use a list instead:
-        ['promote', 'source', 'c', 'd', None, None, None, ['gain_prestige', 'do_nothing']],
-        ['promote', 'source', 'd', 'e', None, None, None, 'gain_prestige'],
+        ['promote', 'c', 'd', None, None, None, ['gain_prestige', 'do_nothing']],
+        ['promote', 'd', 'e', None, None, None, 'gain_prestige'],
         # Alternatively, transitions can be defined with dicts.
         # dict and list definitions can be mixed in the same workflow:
         {'trigger': 'demote', 'source': 'e', 'dest': 'd'},
