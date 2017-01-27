@@ -1,5 +1,5 @@
 # OdooLightWorkflow, a lightweight workflow engine for Odoo
-# Copyright (C) 2016 Savoir-faire Linux
+# Copyright (C) 2017 Savoir-faire Linux
 
 # This file if part of OdooLightWorkflow.
 #
