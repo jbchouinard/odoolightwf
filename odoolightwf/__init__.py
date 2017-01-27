@@ -1,2 +1,1 @@
-from .models import WorkflowModel
-from .core import WorkflowError, trigger
+from .core import WorkflowModel, WorkflowError, trigger
