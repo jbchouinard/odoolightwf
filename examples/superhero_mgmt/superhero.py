@@ -17,7 +17,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 from openerp import fields
 
-import odoolightwf as ltwf
+import openerp.addons.odoolightwf as ltwf
 
 
 # To use a light workflow, all you need is to inherit from WorkflowModel,
