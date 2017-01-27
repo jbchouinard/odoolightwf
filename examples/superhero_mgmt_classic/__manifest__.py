@@ -16,7 +16,7 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 {
-    'name': 'Superhero Management',
+    'name': 'Superhero Management Classic',
     'version': '10.0.1.0',
     'author': 'Savoir-faire Linux',
     'maintainer': 'Savoir-faire Linux',
@@ -25,13 +25,9 @@
     'category': 'Others',
     'summary': 'Demo module for OdooLightWorkflow, a lightweight Odoo workflow engine.',
     'depends': [],
-    'external_dependencies': {
-        'python': [
-            'transitions',
-        ],
-    },
     'data': [
         'superhero.xml',
+        'superhero_workflow.xml',
     ],
     'installable': True,
     'application': True,

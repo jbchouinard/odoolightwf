@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_hero_form" model="ir.ui.view">
+            <field name="name">superhero.classic.view.form</field>
+            <field name="model">superhero.classic</field>
+            <field eval="0" name="priority"/>
+            <field name="arch" type="xml">
+                <form string="Hero">
+                    <header>
+                        <!-- Workflow triggers are methods. They can be called from
+                             buttons, as usual. See superhero.py for details. -->
+                        <button type="object" name="certify" string="Certify"/>
+                        <button type="object" name="promote" string="Promote"/>
+                        <button type="object" name="demote" string="Demote"/>
+                        <button type="object" name="disbar" string="Disbar"/>
+                        <!-- The state can be displayed in a status bar, as usual. -->
+                        <field name="state" widget="statusbar" statusbar_visible="x,a,b,c,d,e"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="phone"/>
+                            <field name="prestige"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

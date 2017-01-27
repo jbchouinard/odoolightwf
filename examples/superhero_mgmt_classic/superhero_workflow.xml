@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="superhero_workflow" model="workflow">
+            <field name="name">superhero.workflow</field>
+            <field name="osv">superhero.classic</field>
+            <field name="on_create">True</field>
+        </record>
+
+        <record id="rank_x" model="workflow.activity">
+            <field name="wkf_id" ref="superhero_workflow"/>
+            <field name="name">x</field>
+            <field name="flow_start">True</field>
+            <field name="kind">function</field>
+            <field name="action">shame()</field>
+        </record>
+
+        <record id="rank_a" model="workflow.activity">
+            <field name="wkf_id" ref="superhero_workflow"/>
+            <field name="name">a</field>
+            <field name="kind">function</field>
+            <field name="action">gain_prestige()</field>
+        </record>
+
+        <record id="rank_b" model="workflow.activity">
+            <field name="wkf_id" ref="superhero_workflow"/>
+            <field name="name">b</field>
+            <field name="kind">function</field>
+            <field name="action">gain_prestige()
+                write({'state': 'b'})</field>
+        </record>
+
+        <record id="rank_c" model="workflow.activity">
+            <field name="wkf_id" ref="superhero_workflow"/>
+            <field name="name">c</field>
+            <field name="kind">function</field>
+            <field name="action">gain_prestige()
+                write({'state': 'c'})</field>
+        </record>
+
+        <record id="rank_d" model="workflow.activity">
+            <field name="wkf_id" ref="superhero_workflow"/>
+            <field name="name">d</field>
+            <field name="kind">function</field>
+            <field name="action">
+                gain_prestige()
+                write({'state': 'd'})
+                do_nothing()
+            </field>
+        </record>
+
+        <record id="rank_e" model="workflow.activity">
+            <field name="wkf_id" ref="superhero_workflow"/>
+            <field name="name">e</field>
+            <field name="flow_stop">True</field>
+            <field name="kind">function</field>
+            <field name="action">gain_prestige()
+                write({'state': 'e'})</field>
+        </record>
+
+        <record id="trans_x_a" model="workflow.transition">
+            <field name="act_from" ref="rank_x"/>
+            <field name="act_to" ref="rank_a"/>
+            <field name="signal">signal_certify</field>
+            <field name="condition">valid_phone()</field>
+        </record>
+
+        <record id="trans_a_b" model="workflow.transition">
+            <field name="act_from" ref="rank_a"/>
+            <field name="act_to" ref="rank_b"/>
+            <field name="signal">signal_promote</field>
+        </record>
+
+        <record id="trans_b_c" model="workflow.transition">
+            <field name="act_from" ref="rank_b"/>
+            <field name="act_to" ref="rank_c"/>
+            <field name="signal">signal_promote</field>
+        </record>
+
+        <record id="trans_c_d" model="workflow.transition">
+            <field name="act_from" ref="rank_c"/>
+            <field name="act_to" ref="rank_d"/>
+            <field name="signal">signal_promote</field>
+        </record>
+
+        <record id="trans_d_e" model="workflow.transition">
+            <field name="act_from" ref="rank_d"/>
+            <field name="act_to" ref="rank_e"/>
+            <field name="signal">signal_promote</field>
+        </record>
+
+        <record id="trans_e_x" model="workflow.transition">
+            <field name="act_from" ref="rank_e"/>
+            <field name="act_to" ref="rank_x"/>
+            <field name="signal">signal_disbar</field>
+        </record>
+    </data>
+</odoo>
