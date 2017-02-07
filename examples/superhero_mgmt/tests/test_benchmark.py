@@ -16,14 +16,12 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import logging
-import time
 
 from openerp.tests.common import TransactionCase
 
 
 _logger = logging.getLogger(__name__)
-
-N = 2000
+logging.getLogger('transitions.core').propagate = 0
 
 
 class TestBenchmark(TransactionCase):
@@ -36,13 +34,13 @@ class TestBenchmark(TransactionCase):
         })
 
     def test_workflow(self):
-        start_time = time.time()
-        for _ in range(N):
-            self.hero.certify()
-            self.hero.promote()
-            self.hero.promote()
-            self.hero.promote()
-            self.hero.promote()
-            self.hero.disbar()
-        elapsed = time.time() - start_time
-        _logger.warn('Did %i workflow cycles in %f seconds.' % (N, elapsed))
+        self.hero.certify()
+        self.hero.promote()
+        self.hero.promote()
+        self.hero.promote()
+        self.hero.promote()
+        self.hero.disbar()
+
+
+for n in range(200):
+    setattr(TestBenchmark, 'test_workflow_%i' % n, TestBenchmark.test_workflow)

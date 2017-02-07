@@ -88,7 +88,7 @@ class WorkflowModel(models.BaseModel):
             setattr(machine, cb, partial(getattr(self, cb)))
 
         def _update_model_state():
-            self.state = machine.state
+            self.write({'state': machine.state})
 
         machine._update_model_state = _update_model_state
         return machine

@@ -23,8 +23,6 @@ from openerp.tests.common import TransactionCase
 
 _logger = logging.getLogger(__name__)
 
-N = 2000
-
 
 class TestBenchmark(TransactionCase):
     def setUp(self):
@@ -36,13 +34,13 @@ class TestBenchmark(TransactionCase):
         })
 
     def test_workflow(self):
-        start_time = time.time()
-        for _ in range(N):
-            self.hero.signal_workflow('signal_certify')
-            self.hero.signal_workflow('signal_promote')
-            self.hero.signal_workflow('signal_promote')
-            self.hero.signal_workflow('signal_promote')
-            self.hero.signal_workflow('signal_promote')
-            self.hero.signal_workflow('signal_disbar')
-        elapsed = time.time() - start_time
-        _logger.info('Did %i workflow cycles in %f seconds.' % (N, elapsed))
+        self.hero.signal_workflow('signal_certify')
+        self.hero.signal_workflow('signal_promote')
+        self.hero.signal_workflow('signal_promote')
+        self.hero.signal_workflow('signal_promote')
+        self.hero.signal_workflow('signal_promote')
+        self.hero.signal_workflow('signal_disbar')
+
+
+for n in range(200):
+    setattr(TestBenchmark, 'test_workflow_%i' % n, TestBenchmark.test_workflow)
